@@ -7,5 +7,6 @@
     <h2><%= link_to "Titulo:", post_path(post.id) %> <%= post.title %></h2>
     <p>Contenido: <%= post.content.truncate(255) %><%= link_to "...", post_path(post.id) %></p>
     <%= link_to "Ver más", post_path(post.id) %>
+    <%= link_to "Editar", edit_post_path(post.id) %>
   </div>
 <% end %>
