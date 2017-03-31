@@ -1,4 +1,13 @@
 <h1><%= form_title %></h1>
+
+<% if @post.errors.any? %>
+  <ul>
+    <% @post.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= form_for @post do |f| %>
   <div>
     <%= f.text_field :title, placeholder: "Titulo" %>
