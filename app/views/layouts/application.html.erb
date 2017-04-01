@@ -14,7 +14,7 @@
     <% end %>
 
     <% if signed_in? %>
-      <div>Hola <%= current_user.email %></div>
+      <div>Hola <%= current_user.email %> <%= link_to "Salir", logout_path, method: :delete %></div>
     <% else %>
       <%= link_to "Ingresar", login_path %>
       <%= link_to "Registrarme", new_user_path %>
