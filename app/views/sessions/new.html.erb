@@ -1,0 +1,15 @@
+<h1>Ingresar</h1>
+
+<%= form_tag controller: :sessions, action: :create do %>
+  <div>
+    <%= label_tag(:email, "Correo electrónico") %>
+    <%= email_field_tag(:email, nil, class: "") %>
+  </div>
+  <div>
+    <%= label_tag(:password, "Contraseña") %>
+    <%= password_field_tag(:password, nil) %>
+  </div>
+  <div>
+    <%= submit_tag("Ingresar", class: "") %>
+  </div>
+<% end %>
