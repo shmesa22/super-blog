@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all.order('created_at DESC')
+    @posts = Post.all.order('created_at ASC')
   end
 
   def show
@@ -15,7 +15,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user = current_user
     if @post.save
-      redirect_to posts_path, notice: "El post ha sido creado"
+      redirect_to root_path, notice: "El post ha sido creado"
     else
       render :new
     end
@@ -28,7 +28,7 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     if @post.update(post_params)
-      redirect_to posts_path, notice: "El post ha sido modificado"
+      redirect_to root_path, notice: "El post ha sido modificado"
     else
       render :edit
     end
@@ -38,7 +38,7 @@ class PostsController < ApplicationController
     post = Post.find(params[:id])
     post.destroy
 
-    redirect_to posts_path, notice: "El post ha sido eliminado"
+    redirect_to root_path, notice: "El post ha sido eliminado"
   end
 
   private
