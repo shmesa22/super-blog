@@ -6,8 +6,9 @@
 
 <% @posts.each do |post| %>
   <div>
+    <p><%= post.created_at %><%= time_ago_in_words(post.created_at) %></p>
     <h2><%= link_to "Titulo:", post_path(post.id) %> <%= post.title %></h2>
-    <p>Contenido: <%= post.content.truncate(255) %></p>
+    <p>Contenido: <%= post.content.truncate(250) %></p>
     <%= link_to "Ver más", post_path(post) %>
     <% if signed_in? && post.user == current_user %>
       <%= link_to "Editar", edit_post_path(post) %>
