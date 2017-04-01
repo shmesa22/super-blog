@@ -13,7 +13,12 @@
       <%= flash[:notice] %>
     <% end %>
 
-    <%= link_to "Registrarme", new_user_path %>
+    <% if signed_in? %>
+      <div>Hola <%= current_user.email %></div>
+    <% else %>
+      <%= link_to "Ingresar", login_path %>
+      <%= link_to "Registrarme", new_user_path %>
+    <% end %>
 
     <%= yield %>
   </body>
