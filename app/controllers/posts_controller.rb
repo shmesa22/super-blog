@@ -13,6 +13,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @product.user = current_user
     if @post.save
       redirect_to posts_path, notice: "El post ha sido creado"
     else
