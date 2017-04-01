@@ -1,0 +1,21 @@
+<h1>Crea un nuevo usuario</h1>
+
+<% if @user.errors.any? %>
+  <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for @user do |f| %>
+  <div>
+    <%= f.email_field :email, placeholder: "Correo electrónico" %>
+  </div>
+  <div>
+    <%= f.password_field :password, placeholder: "Contraseña" %>
+  </div>
+  <div>
+    <%= f.submit "Crear Usuario" %>
+  </div>
+<% end %>
