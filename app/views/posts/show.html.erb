@@ -1,14 +1,15 @@
 <div class="container">
   <h1><%= @post.title %></h1>
-  <p><%= @post.created_at %> Por: <%= @post.user.email %></p>
-  <p><%= @post.content %></p>
+  <p><%= @post.created_at.strftime("%b %d, %Y") %>. <%= time_ago_in_words(@post.created_at) %> </p>
+  <p>Por: <%= @post.user.email %></p>
+  <p><%= @post.content.html_safe %></p>
 
   <h2>Comentarios:</h2>
   <div class="row">
     <% @post.comments.each do |comment| %>
       <div class="col-sm-6">
         <header><%= comment.user.email %></header>
-        <p><%= comment.content %></p>
+        <p><%= comment.content.html_safe %></p>
       </div>
     <% end %>
   </div>

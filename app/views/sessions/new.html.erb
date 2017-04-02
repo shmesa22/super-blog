@@ -1,6 +1,14 @@
 <div class="container">
   <h1>Ingresar</h1>
 
+  <% if flash[:alert] %>
+    <div class="alert alert-danger">
+      <ul>
+        <li><%= flash[:alert] %></li>
+      </ul> 
+    </div>
+  <% end %>
+
   <div class="row">
     <div class="col-sm-6">
       <%= form_tag(controller: :sessions, action: :create) do %>
