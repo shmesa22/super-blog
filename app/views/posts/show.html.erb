@@ -1,6 +1,7 @@
 <div class="container">
   <h1><%= @post.title %></h1>
-  <p><%= @post.created_at %> Por: <%= @post.user.email %></p>
+  <p><%= @post.created_at.strftime("%b %d, %Y") %>. <%= time_ago_in_words(@post.created_at) %> </p>
+  <p>Por: <%= @post.user.email %></p>
   <p><%= @post.content %></p>
 
   <h2>Comentarios:</h2>
